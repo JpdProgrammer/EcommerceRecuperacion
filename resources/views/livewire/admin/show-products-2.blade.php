@@ -71,6 +71,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        {{-- Añadimos los inputs del minPrice y del maxPrice --}}
                         <x-jet-input class="border-orange-500 border" size="25"
                                      wire:model="minPrice"
                                      type="text"

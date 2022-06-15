@@ -7,7 +7,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Subcategory;
-use App\ProductFilter;
+use App\Filters\ProductFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Livewire\Component;
@@ -24,6 +24,7 @@ class ShowProducts2 extends Component
     public $subcategory = 'default';
     public $brands;
     public $brand = 'default';
+    // variables minPrince y maxPrice
     public $minPrice;
     public $maxPrice;
     public $selectedColumns;
@@ -39,6 +40,7 @@ class ShowProducts2 extends Component
     public $columns = ['nombre', 'vendido', 'preVendido', 'categoria', 'subcategoria', 'marca', 'estado', 'precio', 'stock', 'creado-el', 'colores',
         'tallas'];
 
+    // añadimos las variables al queryString
     protected $queryString = [
         'category' => ['except' => 'default'],
         'subcategory' => ['except' => 'default'],
@@ -63,6 +65,7 @@ class ShowProducts2 extends Component
         $this->selectedColumns = $this->columns;
     }
 
+    // añadimos las variables en el getProducts
     protected function getProducts(ProductFilter $productFilter)
     {
         $products = Product::query()

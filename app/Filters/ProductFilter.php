@@ -1,12 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Filters;
 
+use App\Filters\QueryFilter;
 use Illuminate\Support\Carbon;
 
 class ProductFilter extends QueryFilter
 {
-
+    // añadimos las reglas del minPrice y maxPrice
     public function rules(): array
     {
         return [
@@ -48,11 +49,13 @@ class ProductFilter extends QueryFilter
         return $query->where('brand_id', $brand_id);
     }
 
+    // devolvemos cuando el precio sea mayor o igual al minPrice indicado
     public function minPrice($query, $minPrice)
     {
         return $query->where('price', '>=', $minPrice);
     }
 
+    // devolvemos cuando el precio sea menor o igual al maxPrice indicado
     public function maxPrice($query, $maxPrice)
     {
         return $query->where('price', '<=', $maxPrice);
@@ -93,3 +96,4 @@ class ProductFilter extends QueryFilter
 
     public $stock;
 }
+
