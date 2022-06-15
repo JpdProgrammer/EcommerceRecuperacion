@@ -26,6 +26,9 @@ class CreateProductsTable extends Migration
 
             $table->float('price');
 
+            $table->integer('sold')->default(0);
+            $table->integer('preSold')->default(0);
+
             $table->foreignId('subcategory_id')->references('id')->on('subcategories')
             ->onDelete('cascade');
 

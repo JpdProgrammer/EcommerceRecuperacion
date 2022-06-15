@@ -44,6 +44,9 @@ class AddCartItem extends Component
             'options' => $this->options,
         ]);
 
+        $this->product->preSold = $this->qty + $this->product->preSold;
+        $this->product->save();
+
         $this->quantity = qty_available($this->product->id);
         $this->reset('qty');
 

@@ -5,13 +5,12 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Brand;
 use App\Models\Category;
-use App\Models\Color;
 use App\Models\Product;
 use App\Models\Subcategory;
 use App\ProductFilter;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Livewire\Component;
-use Illuminate\Database\Eloquent\Builder;
 use Livewire\WithPagination;
 
 class ShowProducts2 extends Component
@@ -37,7 +36,7 @@ class ShowProducts2 extends Component
     public $quantities = [0,10,20,50];
     public $stock;
 
-    public $columns = ['nombre', 'categoria', 'subcategoria', 'marca', 'estado', 'precio', 'stock', 'creado-el', 'colores',
+    public $columns = ['nombre', 'vendido', 'preVendido', 'categoria', 'subcategoria', 'marca', 'estado', 'precio', 'stock', 'creado-el', 'colores',
         'tallas'];
 
     protected $queryString = [
@@ -142,11 +141,6 @@ class ShowProducts2 extends Component
     {
         $this->sortColumn = $column;
         $this->sortDirection = $this->sortDirection == 'asc' ? 'desc' : 'asc';
-    }
-
-    public function getTimesSold($product)
-    {
-        return ;
     }
 
     public function render(ProductFilter $productFilter)

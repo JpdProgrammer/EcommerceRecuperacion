@@ -14,9 +14,8 @@ class Product extends Model
 
     const BORRADOR = 1;
     const PUBLICADO = 2;
-    public $timesSold = 0;
 
-    protected $fillable = ['name', 'slug', 'description', 'price', 'subcategory_id', 'brand_id', 'quantity'];
+    protected $fillable = ['name', 'slug', 'description', 'price', 'sold', 'preSold','subcategory_id', 'brand_id', 'quantity'];
     //protected $guarded = ['id', 'created_at', 'updated_at'];
 
     public function newEloquentBuilder($query)
@@ -72,15 +71,5 @@ class Product extends Model
     public function scopeFilterBy($query, QueryFilter $filters, array $data)
     {
         return $filters->applyto($query, $data);
-    }
-
-    public function getTimesSold()
-    {
-        return $this->timesSold;
-    }
-
-    public function setTimesSold(int $timesSold)
-    {
-        $this->timesSold = $timesSold;
     }
 }

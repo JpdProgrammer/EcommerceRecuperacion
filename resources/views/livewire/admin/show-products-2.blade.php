@@ -125,6 +125,16 @@
                                 <button>Nombre</button>
                             </th>
                         @endif
+                        @if(in_array('vendido', $selectedColumns))
+                             <th wire:click="sort('sold')" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                 <button>Vendido</button>
+                             </th>
+                        @endif
+                        @if(in_array('preVendido', $selectedColumns))
+                             <th wire:click="sort('preSold')" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                 <button>Reservado</button>
+                             </th>
+                        @endif
                         @if(in_array('categoria', $selectedColumns))
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 <button>Categoría</button>
@@ -188,6 +198,16 @@
                                             </div>
                                         </div>
                                     </div>
+                                </td>
+                            @endif
+                            @if(in_array('vendido', $selectedColumns))
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-center text-gray-900">{{ $product->sold }}</div>
+                                </td>
+                            @endif
+                            @if(in_array('preVendido', $selectedColumns))
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-center text-gray-900">{{ $product->preSold }}</div>
                                 </td>
                             @endif
                             @if(in_array('categoria', $selectedColumns))

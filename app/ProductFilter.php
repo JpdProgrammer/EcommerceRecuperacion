@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\DB;
 
 class ProductFilter extends QueryFilter
 {

@@ -32,6 +32,7 @@ class PaymentOrder extends Component
     {
         $this->order->status = 2;
         $this->productSold();
+        $this->productPreSold();
         $this->order->save();
 
         return redirect()->route('orders.show', $this->order);
@@ -41,14 +42,22 @@ class PaymentOrder extends Component
     {
         $items = json_decode($this->order->content);
 
+        foreach ($items as $item) {
+            $product = Product::find($item->id);
+            $product->sold = $item->qty + $product->sold;
+            $product->save();
+        }
+    }
+
+    public function productPreSold()
+    {
+        $items = json_decode($this->order->content);
 
         foreach ($items as $item) {
             $product = Product::find($item->id);
-            $product->setTimesSold($item->qty + $product->timesSold);
+            $product->preSold = $product->preSold - $item->qty;
             $product->save();
         }
-
-        return $product;
     }
 
     public function render()
