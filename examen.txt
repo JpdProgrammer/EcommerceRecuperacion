@@ -3,3 +3,11 @@ log out las he hecho con erase y store, luego he destruido el carrito y para que
 traería el carrito de vuelta he utilizado merge
 
 Prueba commit antes examen
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+GIT DEL EXAMEN
+https://github.com/JpdProgrammer/EcommerceRecuperacion
+
+Para la Tarea 1 los tests que se ejecutan sin dar errores todos a la vez son los de la carpeta RecuperacionJunio los de la carpeta Examen
+son los mismos pero solo pasan cuando se ejecutan de uno en uno
