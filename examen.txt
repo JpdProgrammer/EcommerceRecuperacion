@@ -1,3 +1,5 @@
 Para el ejercicio 2, al no poder utilizar Dusk lo que he hecho ha sido agregar dos objetos al carrito y las acciones de
 log out las he hecho con erase y store, luego he destruido el carrito y para que efectivamente se vea que al logearse de nuevo
 traería el carrito de vuelta he utilizado merge
+
+Prueba commit antes examen
